@@ -1,0 +1,206 @@
+body {
+    font-family: "Lato", sans-serif;
+    color: #5e5b52;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+input,
+textarea {
+    font-size: 13px !important;
+}
+main {
+    flex: 1 0 auto;
+}
+nav {
+    background: rgba(255, 255, 255, 0.95);
+    height: 103px;
+}
+#nav-contents {
+    padding-top: 15px;
+}
+#footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 0px;
+    color: rgba(200, 200, 200, 0.5);
+}
+#gallery {
+    margin-top: 55px;
+}
+#main-header {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 45px;
+    color: #ffeb3b;
+}
+@media screen and (max-width: 600px) {
+    #main-header {
+        font-size: 8vw;
+    }
+}
+hr {
+    height: 2px;
+    color: #ffeb3b;
+    background-color: #ffeb3b;
+    border: none;
+}
+.fixed-action-btn {
+    padding-right: 75px;
+    padding-bottom: 25px;
+}
+.modal {
+    min-height: 60% !important;
+    max-height: 100% !important;
+    overflow: visible !important;
+}
+.dropzone {
+    width: auto;
+    min-height: 320px !important;
+    margin-top: 25px;
+}
+.dropzone .dz-message {
+    padding: 80px;
+}
+.make-yellow {
+    color: #ffeb3b !important;
+}
+.white {
+    background: rgba(255, 255, 255, 0) !important;
+}
+.white:hover {
+    background: #e0e0e0 !important;
+}
+
+/* modal grid styling */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+div .modal-grid-image {
+    border-style: solid;
+    border-color: #009688;
+    border-width: 3px;
+    border-radius: 5px;
+    position: relative;
+    height: 120px;
+    width: 120px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+.img-thumbnail {
+    position: absolute;
+    max-width: 180px;
+    height: auto;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+/* zoom styling */
+
+/* * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+.image-container {
+    overflow: hidden;
+}
+.item {
+    position: relative;
+    margin: 1px;
+    overflow: hidden;
+    width: auto;
+}
+.item img {
+    max-width: 100%;
+
+    -moz-transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+}
+.item:hover img {
+    -moz-transform: scale(1.08);
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08);
+}
+
+/* modal styling */
+
+.myImg {
+    cursor: pointer;
+}
+.img-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: remove; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.img-modal-content {
+    margin: auto;
+    display: block;
+    max-width: 700px;
+    max-height: 500px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.img-modal-content,
+#caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0);
+    }
+    to {
+        -webkit-transform: scale(1);
+    }
+}
+@keyframes zoom {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* 100% Image Width on Smaller Screens */
+/* @media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+} */
