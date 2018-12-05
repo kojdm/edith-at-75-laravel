@@ -11,7 +11,9 @@
         <div id="nav-contents" class="container">
             <div class="row" style="margin-bottom: 0;">
                 <div class="nav-wrapper">
-                    <a id="main-header" class="brand-logo center">Edith @ 75</a>
+                    <div class="header-wrapper">
+                        <a id="main-header" class="brand-logo center">Edith @ 75</a>
+                    </div>
                     <div class="right" style="padding-top: 10px;">
 
                         <div class="floating-action-button">
