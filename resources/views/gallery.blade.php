@@ -35,6 +35,9 @@
     else {
         var numColumns = 5;
     }
+    if (($(window).width() <= 600) && imageCount > 2) {
+        var numColumns = 3;
+    }
     if (imageCount > 0) {
         var macy = Macy({
             container: "#macy-container",
