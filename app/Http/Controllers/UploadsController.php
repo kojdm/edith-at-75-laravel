@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class UploadsController extends Controller
 {
@@ -12,7 +13,7 @@ class UploadsController extends Controller
 
         $this->validate($request, [
             'file' => 'required',
-            'file.*' => 'image'
+            'file.*' => 'image|max:10240'
         ]);
 
         $images = $request->file('file');
@@ -34,6 +35,12 @@ class UploadsController extends Controller
             // $path = $image->storeAs("public/uploads/{$user_id}", $fileNameToStore);
 
             \Storage::disk('uploads')->put("{$user_id}/$fileNameToStore", file_get_contents($image));
+
+            $img = Image::make("uploads/$user_id/$fileNameToStore");
+            $img->resize(900, 900, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save("uploads/$user_id/$fileNameToStore");
         }
     }
 
