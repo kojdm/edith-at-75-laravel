@@ -4,7 +4,7 @@
             @foreach ($images as $image)
                 <div class="image-container">
                     <div class="item">
-                        <img src="storage/gallery/{{$image->filename}}" alt='{{$image->caption}}<br><small>FROM {{strtoupper($image->uploader_name)}}</small>' class="myImg" srcset="">
+                        <img src="uploads/gallery/{{$image->filename}}" alt='{{$image->caption}}<br><small>FROM {{strtoupper($image->uploader_name)}}</small>' class="myImg" srcset="">
                     </div>
                 </div>
             @endforeach
