@@ -108,6 +108,18 @@ div .modal-grid-image {
     margin: auto;
     border-radius: 5px;
 }
+@media screen and (max-width: 600px) {
+    .grid-container {
+        display: block;
+    }
+    .thumbnail-wrapper {
+        display: block !important;
+    }
+    .textarea-wrapper {
+        display: block !important;
+        width: 100% !important;
+    }
+}
 
 /* zoom styling */
 

@@ -150,13 +150,13 @@ class UploadsController extends Controller
                 {
                     $output .= '
                     <div class="row">
-                        <div class="col s4">
+                        <div class="col s4 thumbnail-wrapper">
                             <div class="modal-grid-image">
                                 <img src="'.$folder_name.$file.'" class="img-thumbnail">
                             </div>
                         </div>
-                        <div class="input-field col s8">
-                            <textarea id="captionfor&&&'.$file.'" class="materialize-textarea" data-length="120"></textarea>
+                        <div class="input-field col s8 textarea-wrapper">
+                            <textarea id="captionfor&&&'.$file.'" class="materialize-textarea" data-length="120" placeholder="Leave your caption/message here."></textarea>
                             <button type="button" class="waves-effect waves-yellow btn-flat btn-small remove_image" id="'.$file.'">Remove</button>
                         </div>
                     </div>
