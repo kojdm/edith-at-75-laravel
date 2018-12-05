@@ -48,7 +48,7 @@
 
     $("#uploadDropzone").dropzone({
       paramName: 'file',
-      maxFilesize: 5,
+      maxFilesize: 30,
       clickable: true,
       autoProcessQueue: true,
       uploadMultiple: true,
