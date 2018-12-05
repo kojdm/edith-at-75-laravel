@@ -48,6 +48,7 @@
 
     $("#uploadDropzone").dropzone({
       paramName: 'file',
+      maxFilesize: 5,
       clickable: true,
       autoProcessQueue: true,
       uploadMultiple: true,
@@ -66,8 +67,8 @@
         var cancelButton = document.querySelector('#cancel');
         cancelButton.addEventListener("click", function(){
           if (confirm("All your uploaded images and captions will be removed. Cancel anyway?")) {
-            $('.modal').modal('close');
             myDropzone.removeAllFiles();
+            $('.modal').modal('close');
             location.reload();
           }
         });
