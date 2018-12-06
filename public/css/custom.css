@@ -153,9 +153,6 @@ div .modal-grid-image {
 
 /* modal styling */
 
-.myImg {
-    cursor: pointer;
-}
 .img-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
