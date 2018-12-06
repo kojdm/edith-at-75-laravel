@@ -35,7 +35,7 @@
 
     <footer>
         <div id="footer">
-            <p>created by Koji Del Mundo for his lola</p>
+            <p><small>created by Koji Del Mundo for his lola</small></p>
         </div>
     </footer>
 
