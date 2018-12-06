@@ -23,5 +23,10 @@ Route::post('checksinger', 'UploadsController@checkSinger');
 Route::get('uploadlist', 'UploadsController@listImages')->name('upload.list');
 
 Route::get('/test', function(){
-    return view('test');
+    $images = \DB::table('uploads')->get();
+    $data = [
+        'images' => $images,
+    ];
+
+    return view('test')->with($data);
 });
