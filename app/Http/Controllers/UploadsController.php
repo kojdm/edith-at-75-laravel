@@ -37,7 +37,7 @@ class UploadsController extends Controller
             \Storage::disk('uploads')->put("{$user_id}/$fileNameToStore", file_get_contents($image));
 
             $img = Image::make("uploads/$user_id/$fileNameToStore")->orientate();
-            $img->resize(null, 800, function ($constraint) {
+            $img->resize(800, 800, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $img->save("uploads/$user_id/$fileNameToStore");
