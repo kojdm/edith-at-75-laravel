@@ -213,9 +213,27 @@ div .modal-grid-image {
     }
 }
 
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #f1f1f1;
+    font-size: 30px;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 600px) {
     .img-modal-content {
         max-width: 100%;
+        max-height: 70%;
     }
 }

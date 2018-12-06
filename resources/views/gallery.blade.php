@@ -20,6 +20,8 @@
 
 {{-- Image Modal --}}
 <div id="myModal" class="img-modal">
+    <!-- The Close Button -->
+    <span class="close">&times;</span>
     <!-- Modal Content (The Image) -->
     <img class="img-modal-content" id="img-display">
     <!-- Modal Caption (Image Text) -->
@@ -61,6 +63,12 @@
         modalImg.attr("src", newSrc);
         captionText.innerHTML = this.alt;
     });
+
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    };
 
     window.onclick = function(event) {
         if (event.target == modal) {
