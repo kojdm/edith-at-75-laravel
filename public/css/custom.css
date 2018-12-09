@@ -134,7 +134,8 @@ div .modal-grid-image {
 }
 .item {
     position: relative;
-    margin: 1px;
+    margin: 3px;
+    margin-bottom: -5px;
     overflow: hidden;
     width: auto;
 }
