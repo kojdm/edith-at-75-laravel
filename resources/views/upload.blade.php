@@ -52,7 +52,7 @@
       clickable: true,
       autoProcessQueue: true,
       uploadMultiple: true,
-      parallelUploads: 2,
+      parallelUploads: 1,
       addRemoveLinks: true,
       acceptedFiles: "image/*",
       dictCancelUpload: "",
