@@ -37,7 +37,7 @@ class UploadsController extends Controller
             \Storage::disk('uploads')->put("{$user_id}/$fileNameToStore", file_get_contents($image));
 
             $img = Image::make("uploads/$user_id/$fileNameToStore")->orientate();
-            $img->resize(800, 800, function ($constraint) {
+            $img->resize(700, 700, function ($constraint) {
                 $constraint->aspectRatio();
             });
             $img->save("uploads/$user_id/$fileNameToStore");
@@ -50,11 +50,11 @@ class UploadsController extends Controller
 
         $this->validate($request, [
             'uploader_name' => 'required',
-            'uploader_relation' => 'required'
+            'uploader_email' => 'required|email'
         ]);
 
         $uploader_name = $request->uploader_name;
-        $uploader_relation = $request->uploader_relation;
+        $uploader_email = $request->uploader_email;
 
         $name_from_request = explode('&&&', $request->caption_id)[1];
         $caption = "";
@@ -84,7 +84,7 @@ class UploadsController extends Controller
             'original_size' => $original_size,
             'session_id' => \Session::getId(),
             'uploader_name' => $uploader_name,
-            'uploader_relation' => $uploader_relation,
+            'uploader_email' => $uploader_email,
         ]);
 
         // if (\Storage::move("public/uploads/$user_id/$name_from_request", "public/gallery/$filenameFinal")) {
@@ -131,15 +131,15 @@ class UploadsController extends Controller
                         <label>Name</label>
                     </div>
                     <div class="col s8">
-                        <input style="text" placeholder="This is required." id="uploader_name">  
+                        <input type="text" placeholder="This is required." id="uploader_name">  
                     </div>               
                 </div>
                 <div class="row">
                     <div class="col s4">
-                        <label>Relation to Edith</label>                        
+                        <label>E-mail</label>                        
                     </div>
                     <div class="col s8">
-                        <input style="text" placeholder="This too." id="uploader_relation"> 
+                        <input type="email" placeholder="This too." id="uploader_email" class="validate"> 
                     </div>                 
                 </div>
             </div>

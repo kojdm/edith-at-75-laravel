@@ -126,10 +126,15 @@
     doneButton.addEventListener("click", function(){
 
       var uploader_name = $("#uploader_name").val();
-      var uploader_relation = $("#uploader_relation").val();
+      var uploader_email = $("#uploader_email").val();
 
-      if ((uploader_name.length < 1) || (uploader_relation.length < 1)) {
-        alert("Both your name and relation to Edith are required.")
+      if ((uploader_name.length < 1) || (uploader_email.length < 1)) {
+        alert("Both your name and email are required.")
+        return;
+      }
+
+      if (!validateEmail(uploader_email)) {
+        alert("Please enter a valid e-mail address.");
         return;
       }
 
@@ -175,7 +180,7 @@
 
     function uplodi() {
       var uploader_name = $("#uploader_name").val();
-      var uploader_relation = $("#uploader_relation").val();
+      var uploader_email = $("#uploader_email").val();
 
       var textareas = $("textarea").toArray();
       var counter = 0;
@@ -184,7 +189,7 @@
       function uploadData(length) {        
         var request = {
           "uploader_name": uploader_name,
-          "uploader_relation": uploader_relation,
+          "uploader_email": uploader_email,
           "caption_id": textareas[counter].id,
           "caption_value": textareas[counter].value,
           "_token" : "{{ csrf_token() }}",
@@ -207,6 +212,11 @@
           }
         });
       }
+    }
+
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
     }
 
     jQuery.fn.invisible = function() {

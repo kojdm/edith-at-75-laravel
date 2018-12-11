@@ -21,7 +21,7 @@ class CreateUploadsTable extends Migration
             $table->integer('original_size');
             $table->string('session_id');
             $table->string('uploader_name');
-            $table->string('uploader_relation');
+            $table->string('uploader_email');
         });
     }
 
