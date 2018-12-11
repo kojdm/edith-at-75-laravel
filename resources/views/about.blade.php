@@ -1,11 +1,17 @@
 <div class="modal-content">
-    <h5>About this website</h5>
+    <h5>About</h5>
     <hr>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis enim ut tellus elementum sagittis vitae. Lacinia at quis risus sed vulputate. Semper viverra nam libero justo laoreet. Tellus integer feugiat scelerisque varius morbi enim nunc faucibus a. Vitae auctor eu augue ut lectus. Potenti nullam ac tortor vitae. Et odio pellentesque diam volutpat commodo sed. Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum. Integer quis auctor elit sed vulputate mi.
-        <br><br>
-        Eget mauris pharetra et ultrices neque ornare. Nisi vitae suscipit tellus mauris. Dictum varius duis at consectetur lorem donec. Nulla facilisi cras fermentum odio eu feugiat pretium. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget. Lacus vel facilisis volutpat est velit egestas dui id. Id venenatis a condimentum vitae sapien pellentesque habitant morbi tristique. Magna sit amet purus gravida quis blandit turpis cursus. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo. Sit amet volutpat consequat mauris nunc congue. Varius vel pharetra vel turpis nunc eget lorem dolor sed. Rhoncus est pellentesque elit ullamcorper dignissim cras.
-    </p>
+    <p style="white-space: pre-line;"><i>Matagal nang wala sa kalendaryo
+        Next year, mawawala na din sa BINGO</i>
+
+        <b>Kaya, let's all greet her on her 75th birthday!</b>
+
+        So whether she's Mama, Edi, Edith, Edita, Ate Edi, Lols, Lola, Tita or Sister Edith to you, let her know about all the wonderful ways she's touched your heart and made a difference in your life. I'm sure there are over 75 ways we can tell her how much we care.
+
+        Simply click on the upload button on the upper right corner, select your photos and write your greetings! 
+
+
+        Need help with the website? Contact <a href="mailto:edithatseventyfive@gmail.com">edithatseventyfive@gmail.com</a></p>
 </div>
 
 
