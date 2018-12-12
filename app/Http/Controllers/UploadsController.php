@@ -34,13 +34,13 @@ class UploadsController extends Controller
             // Upload file
             // $path = $image->storeAs("public/uploads/{$user_id}", $fileNameToStore);
 
-            \Storage::disk('uploads')->put("{$user_id}/$fileNameToStore", file_get_contents($image));
+            \Storage::disk('uploads')->put("processing/{$user_id}/$fileNameToStore", file_get_contents($image));
 
-            $img = Image::make("uploads/$user_id/$fileNameToStore")->orientate();
-            $img->resize(700, 700, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            $img->save("uploads/$user_id/$fileNameToStore");
+            // $img = Image::make("uploads/$user_id/$fileNameToStore")->orientate();
+            // $img->resize(700, 700, function ($constraint) {
+            //     $constraint->aspectRatio();
+            // });
+            // $img->save("uploads/$user_id/$fileNameToStore");
         }
     }
 
@@ -63,7 +63,7 @@ class UploadsController extends Controller
         }
 
         // $pathToFile = "storage/uploads/$user_id/" . $name_from_request;
-        $pathToFile = "uploads/$user_id/" . $name_from_request;
+        $pathToFile = "uploads/processing/$user_id/" . $name_from_request;
 
         if (!file_exists($pathToFile)){
             return response()->json(['message' => 'File does not exist.'], 400);
@@ -87,23 +87,38 @@ class UploadsController extends Controller
             'uploader_email' => $uploader_email,
         ]);
 
-        // if (\Storage::move("public/uploads/$user_id/$name_from_request", "public/gallery/$filenameFinal")) {
+        $img = Image::make("uploads/processing/$user_id/$name_from_request")->orientate();
+        $img->resize(700, 700, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $img->save("uploads/gallery/$filenameFinal");
 
-        if (\Storage::disk('uploads')->move("$user_id/$name_from_request", "gallery/$filenameFinal")) {
-            // if(empty(\Storage::files("public/uploads/$user_id/"))) {
+        // \Storage::disk('uploads')->delete("processing/$user_id/$name_from_request");
+        unlink($pathToFile);
 
-            if(empty(\Storage::disk('uploads')->files("$user_id/"))) {
-
-                // \Storage::deleteDirectory("public/uploads/$user_id/");
-
-                \Storage::disk('uploads')->deleteDirectory("$user_id/");
-            }
-
-            return response()->json(['message' => 'File successfully moved.'], 200);
+        if(empty(\Storage::disk('uploads')->files("processing/$user_id/"))) {
+            \Storage::disk('uploads')->deleteDirectory("processing/$user_id/");
         }
-        else {
-            return "wtf man";
-        }
+
+        return response()->json(['message' => 'File successfully moved.'], 200);
+
+        // // if (\Storage::move("public/uploads/$user_id/$name_from_request", "public/gallery/$filenameFinal")) {
+
+        // if (\Storage::disk('uploads')->move("$user_id/$name_from_request", "gallery/$filenameFinal")) {
+        //     // if(empty(\Storage::files("public/uploads/$user_id/"))) {
+
+        //     if(empty(\Storage::disk('uploads')->files("$user_id/"))) {
+
+        //         // \Storage::deleteDirectory("public/uploads/$user_id/");
+
+        //         \Storage::disk('uploads')->deleteDirectory("$user_id/");
+        //     }
+
+        //     return response()->json(['message' => 'File successfully moved.'], 200);
+        // }
+        // else {
+        //     return "wtf man";
+        // }
     }
 
     public function listImages()
@@ -113,7 +128,7 @@ class UploadsController extends Controller
         $result = array();
 
         // $folder_name = "storage/uploads/$user_id/";
-        $folder_name = "uploads/$user_id/";
+        $folder_name = "uploads/processing/$user_id/";
 
         if (!file_exists($folder_name)) {
             return redirect('/');
@@ -185,15 +200,15 @@ class UploadsController extends Controller
         }
 
         // $pathToFile = "storage/uploads/$user_id/" . $filename;
-        $pathToFile = "uploads/$user_id/" . $filename;
+        $pathToFile = "uploads/processing/$user_id/" . $filename;
 
         if (unlink($pathToFile)) {
             // if(empty(\Storage::files("public/uploads/$user_id/"))) {
 
-            if (empty(\Storage::disk('uploads')->files("$user_id/"))){
+            if (empty(\Storage::disk('uploads')->files("processing/$user_id/"))){
                 // \Storage::deleteDirectory("public/uploads/$user_id/");
                 
-                \Storage::disk('uploads')->deleteDirectory("$user_id/");
+                \Storage::disk('uploads')->deleteDirectory("processing/$user_id/");
             }
             return response()->json(['message' => 'File successfully deleted'], 200);
         }
