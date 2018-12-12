@@ -165,8 +165,8 @@ div .modal-grid-image {
 .img-modal-content {
     margin: auto;
     display: block;
-    max-width: 700px;
-    max-height: 500px;
+    width: auto;
+    max-height: 80%;
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
