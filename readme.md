@@ -1,5 +1,7 @@
 # Edith @ 75
 
+A photo gallery I created for my grandmother's 75th birthday. It allows relatives and friends to upload images with captions/messages.
+
 Visit the website [here](https://edithat75.000webhostapp.com/).
 
 ## Dependencies
