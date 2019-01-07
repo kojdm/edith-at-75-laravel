@@ -26,7 +26,12 @@
             <div class="indeterminate"></div>
         </div>
     </div>
-    <div id="modal-buttons">
+    
+    <div id="not-working" class="left">
+      <a id="backupUpload" href="simpleupload" style="color: #009688;">Upload not working? Click here</a>
+    </div>
+
+    <div id="modal-buttons" class="right">
       <a id="cancel" href="#!" class="btn-flat">Cancel</a>
       <button id="next-button" class="waves-effect waves-light btn-small yellow">Next</button>
       <button id="done-button" class="waves-effect waves-light btn-small yellow" style="display: none;">Done</button>
@@ -71,6 +76,11 @@
             $('.modal').modal('close');
             location.reload();
           }
+        });
+
+        var backupUpload = document.querySelector('#backupUpload');
+        backupUpload.addEventListener("click", function(){
+          myDropzone.removeAllFiles();
         });
 
         myDropzone.on("removedfile", function(file){
@@ -161,6 +171,7 @@
           else {
             alert("Thanks for your contribution!");
             $('#modal-buttons').hide();
+            $('#not-working').hide();
             $('#preloader').show();
             uplodi();
           }

@@ -35,13 +35,47 @@ nav {
     font-size: 45px;
     color: #ffeb3b;
 }
+#about-button-wrapper {
+    margin-right: 15px;
+}
+#about-icon {
+    font-size: 25px;
+}
+#upload-icon {
+    font-size: 28px;
+}
+#not-working {
+    padding-top: 15px;
+    margin-left: 10px;
+}
 @media screen and (max-width: 600px) {
+    nav {
+        height: 95px;
+    }
     #main-header {
-        font-size: 35px;
+        /* font-size: 30px; */
+        font-size: 9vw;
     }
     .header-wrapper {
         position: relative;
         right: 20%;
+    }
+    #about-button-wrapper {
+        padding-right: 0;
+        margin-right: 0;
+    }
+    #about-icon {
+        font-size: 22px;
+    }
+    #upload-icon {
+        font-size: 22px;
+    }
+}
+@media screen and (max-width: 500px) {
+    #not-working {
+        max-width: 100px;
+        font-size: 10px;
+        text-align: left;
     }
 }
 hr {

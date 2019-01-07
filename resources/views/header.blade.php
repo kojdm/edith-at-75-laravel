@@ -16,20 +16,39 @@
                     </div>
                     <div class="right" style="padding-top: 10px;">
 
-                        <div class="floating-action-button">
-                            <div class="left" style="padding-right: 15px;">
-                                <a class=" btn-floating btn-large waves-effect white z-depth-0 tooltipped" data-position="bottom" data-tooltip="About" onclick="$('#aboutModal').modal('open');">
-                                    <i class="material-icons make-yellow" style="font-size: 25px;">info_outline</i>
-                                </a>                                                          
+                        @if (url()->current() == url('/'))
+
+                            <div class="floating-action-button">
+                                <div class="left" id="about-button-wrapper">
+                                    <a class=" btn-floating btn-large waves-effect white z-depth-0 tooltipped" data-position="bottom" data-tooltip="About" onclick="$('#aboutModal').modal('open');">
+                                        <i class="material-icons make-yellow" id="about-icon">info_outline</i>
+                                    </a>                                                          
+                                </div>
+
+                                <div class="right">
+                                    <a class=" btn-floating btn-large waves-effect white z-depth-0 tooltipped" data-position="bottom" data-tooltip="Upload" onclick="$('#uploadModal').modal('open');">
+                                        <i class="material-icons make-yellow" id="upload-icon">file_upload</i>
+                                    </a>                          
+                                </div>
                             </div>
 
-                            <div class="right">
-                                <a class=" btn-floating btn-large waves-effect white z-depth-0 tooltipped" data-position="bottom" data-tooltip="Upload" onclick="$('#uploadModal').modal('open');">
-                                    <i class="material-icons make-yellow" style="font-size: 28px;">file_upload</i>
-                                </a>                          
-                            </div>
-                        </div>
+                        @else
 
+                            <div class="floating-action-button" style="visibility: hidden;">
+                                <div class="left" id="about-button-wrapper">
+                                    <a class=" btn-floating btn-large waves-effect white z-depth-0 tooltipped" data-position="bottom" data-tooltip="About" onclick="$('#aboutModal').modal('open');">
+                                        <i class="material-icons make-yellow" id="about-icon">info_outline</i>
+                                    </a>                                                          
+                                </div>
+    
+                                <div class="right">
+                                    <a class=" btn-floating btn-large waves-effect white z-depth-0 tooltipped" data-position="bottom" data-tooltip="Upload" onclick="$('#uploadModal').modal('open');">
+                                        <i class="material-icons make-yellow" id="upload-icon">file_upload</i>
+                                    </a>                          
+                                </div>
+                            </div>
+
+                        @endif
                     </div>
                 </div>
             </div>
